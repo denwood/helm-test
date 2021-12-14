@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx
+  namespace: nginx
+data:
+  index.html: |
+    <html>
+      <style> 
+      body { 
+        background-color: {{ .Values.color }} ; 
+      } 
+      </style>
+    <body>
+    <h2> Rrelease Name : {{.Release.Name}} </h2> 
+    <h2> Rrelease Revision : {{.Release.Revision}} </h2> 
+    </br> 
+    <h2> Chart Version : {{.Chart.Version}} </h2> 
+    <h2> Chart App Version  {{.Chart.AppVersion}} </h2> 
+
+
+    </br>
+    </body> 
+    </html>
